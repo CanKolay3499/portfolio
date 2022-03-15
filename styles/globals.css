@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer utilities {
+  .bg-default {
+    @apply bg-white dark:bg-black;
+  }
+
+  .border-default {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+
+  .card {
+    @apply border-default border rounded-2xl py-4 px-6 my-4 w-full hover:border-blue-700 focus:border-blue-700 transition-all duration-300;
+  }
+}
+
+* {
+  @apply font-body;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-default text-black dark:text-white;
+}
