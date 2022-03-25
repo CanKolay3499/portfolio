@@ -8,7 +8,7 @@ const HomePage: React.FC<{}> = () => {
   type Skills = {
     label: string
     percent: number
-    className: string
+    className?: string
     delay: number
     learning?: boolean
   }
@@ -59,20 +59,7 @@ const HomePage: React.FC<{}> = () => {
     {
       label: 'C',
       percent: 35,
-      className: 'text-white bg-gray-600',
-      delay: 1.05
-    },
-    {
-      label: 'C++',
-      percent: 30,
-      className: 'text-white bg-purple-500',
-      delay: 1.3
-    },
-    {
-      label: 'Rust',
-      percent: 20,
-      className: 'text-white',
-      delay: 1.3,
+      delay: 1.05,
       learning: true
     }
   ]
@@ -104,7 +91,7 @@ const HomePage: React.FC<{}> = () => {
                 animate={{ width: skill.learning ? '%100' : `${skill.percent}%`, opacity: 1 }}
                 className={cn(
                   `h-10 rounded-full absolute flex items-center justify-between px-4`,
-                  skill.className
+                  skill?.className
                 )}
               >
                 <motion.h1
