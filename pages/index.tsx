@@ -51,15 +51,21 @@ const HomePage: React.FC<{}> = () => {
       delay: 0.75
     },
     {
+      label: 'PHP',
+      percent: 65,
+      className: 'text-white bg-purple-700',
+      delay: 0.9
+    },
+    {
       label: 'Python',
       percent: 60,
       className: 'text-white bg-yellow-300',
-      delay: 0.9
+      delay: 1.05
     },
     {
       label: 'C',
       percent: 35,
-      delay: 1.05,
+      delay: 1.30,
       learning: true
     }
   ]
