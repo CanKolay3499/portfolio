@@ -65,7 +65,7 @@ const HomePage: React.FC<{}> = () => {
     {
       label: 'C',
       percent: 35,
-      delay: 1.30,
+      delay: 1.3,
       learning: true
     }
   ]
@@ -107,7 +107,9 @@ const HomePage: React.FC<{}> = () => {
                   className="text-lg font-medium mr-2"
                 >
                   {skill.label}
-                  <span className="text-xs font-medium text-disabled ml-2">{skill.learning && '*'}</span>
+                  <span className="text-xs font-medium text-disabled ml-2">
+                    {skill.learning && '*'}
+                  </span>
                 </motion.h1>
                 <motion.span
                   transition={{ duration: 0.75, ease: 'easeIn', delay: skill.delay * 2 }}
@@ -122,7 +124,9 @@ const HomePage: React.FC<{}> = () => {
           </motion.div>
         ))}
 
-        <Container><p className="text-xs text-blue-500 font-medium">* = still learning</p></Container>
+        <Container>
+          <p className="text-xs text-blue-500 font-medium">* = still learning</p>
+        </Container>
 
         <div className="my-4 flex items-center text-center flex-col justify-center text-lg">
           <span className="text-2xl mb-1">Contact me</span>

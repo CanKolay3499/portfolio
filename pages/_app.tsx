@@ -23,22 +23,15 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
 
       <motion.main transition={{ duration: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
         <Header />
-        <AnimatePresence
-          exitBeforeEnter
-          onExitComplete={() => {
-            window.scrollTo(0, 0)
-          }}
+        <motion.main
+          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          key={Math.random()}
         >
-          <motion.main
-            transition={{ duration: 0.5 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key={Math.random()}
-          >
-            <Component {...pageProps} />
-          </motion.main>
-        </AnimatePresence>
+          <Component {...pageProps} />
+        </motion.main>
       </motion.main>
     </>
   )
