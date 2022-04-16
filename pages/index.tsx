@@ -138,7 +138,7 @@ const HomePage: React.FC<{}> = () => {
         </div>
 
         <Link href="mailto:cankolay3499@gmail.com" passHref>
-          <div className="card">
+          <div className="card cursor-pointer">
             <h1 className="text-lg font-medium">Email</h1>
             <span className="text-sm">cankolay3499@gmail.com</span>
           </div>
@@ -149,7 +149,7 @@ const HomePage: React.FC<{}> = () => {
         </div>
 
         <Link href="https://github.com/CanKolay3499" passHref>
-          <div className="card">
+          <div className="card cursor-pointer">
             <h1 className="text-lg font-medium">Github</h1>
             <span className="text-sm">My projects and other stuff</span>
           </div>
