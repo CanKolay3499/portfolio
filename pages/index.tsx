@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '@/components'
+import { Container, Box } from '@/components'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import cn from 'classnames'
@@ -17,49 +17,49 @@ const HomePage: React.FC<{}> = () => {
     {
       label: 'HTML',
       percent: 95,
-      className: 'text-white bg-orange-600',
+      className: 'bg-orange-600',
       delay: 0
     },
     {
       label: 'CSS',
       percent: 69,
-      className: 'text-white bg-blue-600',
+      className: 'bg-blue-600',
       delay: 0.15
     },
     {
       label: 'JavaScript',
       percent: 85,
-      className: 'text-white bg-amber-400',
+      className: 'bg-amber-400',
       delay: 0.3
     },
     {
       label: 'TailwindCSS',
       percent: 90,
-      className: 'text-white bg-teal-400',
+      className: 'bg-teal-400',
       delay: 0.45
     },
     {
       label: 'React',
       percent: 75,
-      className: 'text-white bg-blue-500',
+      className: 'bg-blue-500',
       delay: 0.6
     },
     {
       label: 'Lua',
       percent: 90,
-      className: 'text-white bg-blue-700',
+      className: 'bg-blue-700',
       delay: 0.75
     },
     {
       label: 'PHP',
       percent: 65,
-      className: 'text-white bg-purple-700',
+      className: 'bg-purple-700',
       delay: 0.9
     },
     {
       label: 'Python',
       percent: 60,
-      className: 'text-white bg-yellow-300',
+      className: 'bg-yellow-300',
       delay: 1.05
     },
     {
@@ -107,7 +107,7 @@ const HomePage: React.FC<{}> = () => {
                   className="text-lg font-medium mr-2"
                 >
                   {skill.label}
-                  <span className="text-xs font-medium text-disabled ml-2">
+                  <span className="text-xs font-medium text-secondary">
                     {skill.learning && '*'}
                   </span>
                 </motion.h1>
@@ -132,16 +132,16 @@ const HomePage: React.FC<{}> = () => {
           <span className="text-2xl mb-1">Contact me</span>
         </div>
 
-        <div className="card">
+        <Box>
           <h1 className="text-lg font-medium">Discord</h1>
           <span className="text-sm">Can Kolay#5578</span>
-        </div>
+        </Box>
 
         <Link href="mailto:cankolay3499@gmail.com" passHref>
-          <div className="card cursor-pointer">
+          <Box className="cursor-pointer">
             <h1 className="text-lg font-medium">Email</h1>
             <span className="text-sm">cankolay3499@gmail.com</span>
-          </div>
+          </Box>
         </Link>
 
         <div className="my-4 flex items-center text-center flex-col justify-center text-lg">
@@ -149,10 +149,10 @@ const HomePage: React.FC<{}> = () => {
         </div>
 
         <Link href="https://github.com/CanKolay3499" passHref>
-          <div className="card cursor-pointer">
+          <Box className="cursor-pointer">
             <h1 className="text-lg font-medium">Github</h1>
             <span className="text-sm">My projects and other stuff</span>
-          </div>
+          </Box>
         </Link>
 
         <Link href="https://youtu.be/dQw4w9WgXcQ" passHref>
