@@ -9,7 +9,7 @@ const Document: React.FC<{}> = () => {
     <Html lang="en">
       <Head>
         <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
 
@@ -29,7 +29,7 @@ const Document: React.FC<{}> = () => {
         <meta property="og:description" content={appDescription} />
         <meta property="og:site_name" content={appName} />
       </Head>
-      <body>
+      <body className="text-primary bg-primary">
         <Main />
         <NextScript />
       </body>
