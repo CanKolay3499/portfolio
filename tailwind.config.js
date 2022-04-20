@@ -10,11 +10,9 @@ const config = {
       }
     },
     fontFamily: {
-      body: ['Poppins'],
-      mono: ['JetBrains\\ Mono']
+      body: ['Poppins']
     }
-  },
-  plugins: []
+  }
 }
 
 module.exports = config
