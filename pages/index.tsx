@@ -134,7 +134,7 @@ const HomePage: React.FC<{}> = () => {
 
         <div className="card">
           <h1 className="text-lg font-medium">Discord</h1>
-          <span className="text-sm">CanKolay#3499</span>
+          <span className="text-sm">Can Kolay#5578</span>
         </div>
 
         <Link href="mailto:cankolay3499@gmail.com" passHref>
