@@ -12,7 +12,7 @@ const config = {
           800: '#151419',
           700: '#232429'
         },
-        primary: colors.indigo
+        primary: colors.emerald
       }
     },
     fontFamily: {

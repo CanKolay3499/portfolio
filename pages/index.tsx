@@ -117,7 +117,7 @@ const HomePage: React.FC<{}> = () => {
                 </p>
                 <p className="flex">
                   <span className="text-primary-600 mr-2">-</span>
-                  <p className="text-secondary items-center">My programming journey</p>
+                  <p className="text-secondary items-center">My programming journey has started</p>
                 </p>
               </div>
             </div>

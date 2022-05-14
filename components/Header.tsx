@@ -3,7 +3,7 @@ import { Container, Logo } from '@/components'
 import Link from 'next/link'
 import { useWindowDimensions } from '@/hooks'
 import { AnimatePresence, motion } from 'framer-motion'
-import { RiMenu5Fill, RiCloseFill } from 'react-icons/ri'
+import { RiMenu5Fill, RiCloseFill, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 
@@ -52,7 +52,7 @@ const Header: React.FC<{}> = () => {
             e.preventDefault()
             setHeader(!header)
           }}
-          className="bg-secondary bor p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl"
+          className="bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl"
         >
           {header ? <RiCloseFill /> : <RiMenu5Fill />}
         </button>
@@ -121,11 +121,10 @@ const Header: React.FC<{}> = () => {
       <nav className="h-16 z-50 border-b border-primary backdrop-blur backdrop-filter !bg-opacity-50 bg-primary sticky w-screen top-0 flex items-center justify-center">
         <Container className="flex justify-between items-center h-16">
           <Link href="/" passHref>
-            <a>
+            <a className="flex items-center">
               <Logo />
             </a>
           </Link>
-          <AnimatePresence exitBeforeEnter>{width < 768 && <ToggleHeader />}</AnimatePresence>
           <AnimatePresence exitBeforeEnter>
             {header && width < 768 && (
               <>
@@ -134,25 +133,33 @@ const Header: React.FC<{}> = () => {
               </>
             )}
           </AnimatePresence>
-          {width > 768 && (
-            <div className="flex flex-row-reverse items-center">
-              {links.map((link: Link, index: number) => {
-                const active = link.url == router.asPath
-                return (
-                  <Link href={link.url} key={index} passHref>
-                    <motion.a
-                      className={cn(
-                        'ml-2 last:ml-0',
-                        active ? 'font-medium text-primary' : 'text-secondary'
-                      )}
-                    >
-                      {link.label}
-                    </motion.a>
-                  </Link>
-                )
-              })}
-            </div>
-          )}
+          <div className="flex items-center">
+            {width > 768 && (
+              <div className="flex flex-row-reverse items-center">
+                {links.map((link: Link, index: number) => {
+                  const active = link.url == router.asPath
+                  return (
+                    <Link href={link.url} key={index} passHref>
+                      <motion.a
+                        className={cn(
+                          'ml-2 last:ml-0',
+                          active ? 'font-medium text-primary' : 'text-secondary'
+                        )}
+                      >
+                        {link.label}
+                      </motion.a>
+                    </Link>
+                  )
+                })}
+              </div>
+            )}
+            <Link href="https://github.com/CanKolay3499" passHref>
+              <a className="ml-2 bg-secondary border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl">
+                <RiGithubLine />
+              </a>
+            </Link>
+            <AnimatePresence exitBeforeEnter>{width < 768 && <ToggleHeader />}</AnimatePresence>
+          </div>
         </Container>
       </nav>
     </>

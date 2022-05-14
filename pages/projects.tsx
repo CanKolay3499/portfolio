@@ -22,7 +22,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ repos }: ProjectsPageProps)
             >
               <Link href={repo.html_url} passHref>
                 <a>
-                  <h2 className="text-3xl items-center flex font-medium text-primary-300">
+                  <h2 className="text-3xl items-center flex font-medium text-primary-400">
                     {repo.name}
                   </h2>
                 </a>
