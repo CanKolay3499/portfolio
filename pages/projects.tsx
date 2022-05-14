@@ -4,14 +4,21 @@ import axios from 'axios'
 import Link from 'next/link'
 
 import type { GetServerSideProps } from 'next'
+import Head from 'next/head'
 
 type ProjectsPageProps = {
   repos: any
 }
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({ repos }: ProjectsPageProps) => {
+  const appName: string = process.env.NEXT_PUBLIC_APP_NAME
+
   return (
     <>
+      <Head>
+        <title>Projects - {appName}</title>
+      </Head>
+
       <Container>
         <h1 className="text-4xl font-bold mb-6 mt-2">Projects</h1>
         {repos.map((repo: any, index: number) => {

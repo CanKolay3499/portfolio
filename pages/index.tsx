@@ -1,9 +1,16 @@
 import React from 'react'
 import { Container } from '@/components'
+import Head from 'next/head'
 
 const HomePage: React.FC<{}> = () => {
+  const appName: string = process.env.NEXT_PUBLIC_APP_NAME
+
   return (
     <>
+      <Head>
+        <title>About me - {appName}</title>
+      </Head>
+
       <Container>
         <h1 className="text-4xl font-bold mb-6 mt-2">About me</h1>
 
