@@ -1,165 +1,128 @@
 import React from 'react'
-import { Container, Box } from '@/components'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import cn from 'classnames'
+import { Container } from '@/components'
 
 const HomePage: React.FC<{}> = () => {
-  type Skills = {
-    label: string
-    percent: number
-    className?: string
-    delay: number
-    learning?: boolean
-  }
-
-  const skills: Array<Skills> = [
-    {
-      label: 'HTML',
-      percent: 95,
-      className: 'bg-orange-600',
-      delay: 0
-    },
-    {
-      label: 'CSS',
-      percent: 69,
-      className: 'bg-blue-600',
-      delay: 0.15
-    },
-    {
-      label: 'JavaScript',
-      percent: 85,
-      className: 'bg-amber-400',
-      delay: 0.3
-    },
-    {
-      label: 'TailwindCSS',
-      percent: 90,
-      className: 'bg-teal-400',
-      delay: 0.45
-    },
-    {
-      label: 'React',
-      percent: 75,
-      className: 'bg-blue-500',
-      delay: 0.6
-    },
-    {
-      label: 'Lua',
-      percent: 90,
-      className: 'bg-blue-700',
-      delay: 0.75
-    },
-    {
-      label: 'PHP',
-      percent: 65,
-      className: 'bg-purple-700',
-      delay: 0.9
-    },
-    {
-      label: 'Python',
-      percent: 60,
-      className: 'bg-yellow-300',
-      delay: 1.05
-    },
-    {
-      label: 'C',
-      percent: 35,
-      delay: 1.3,
-      learning: true
-    }
-  ]
-
   return (
     <>
       <Container>
-        <div className="my-4 flex items-center text-center flex-col justify-center text-lg">
-          <span className="text-2xl mb-1">Hi!</span>
-          My name is Can and I&apos;m 13 years old.
+        <h1 className="text-4xl font-bold mb-6 mt-2">About me</h1>
+
+        <div className="mb-4">
+          <h2 className="text-3xl font-medium mb-1">Short bio</h2>
+          <div>
+            <p className="text-secondary-disabled font-mono">
+              Merhaba, My name is <span className="font-bold text-primary-500 text-lg">Can</span>. I
+              living in Turkey 🇹🇷 and I&apos;m 13 years old
+            </p>
+          </div>
         </div>
 
-        <div className="my-4 flex items-center text-center flex-col justify-center text-lg">
-          <span className="text-2xl mb-1">My skills</span>
-        </div>
-
-        {skills.map((skill: Skills, index: number) => (
-          <motion.div
-            transition={{ duration: 0.5, ease: 'easeIn', delay: skill.delay }}
-            initial={{ opacity: 0, y: '-25%' }}
-            animate={{ opacity: 1, y: 0 }}
-            className="my-2 relative"
-            key={index}
-          >
-            <div className="rounded-full bg-gray-100 dark:bg-gray-900 h-10">
-              <motion.div
-                transition={{ duration: 1.5, delay: skill.delay }}
-                initial={{ width: '0%', opacity: 0 }}
-                animate={{ width: skill.learning ? '%100' : `${skill.percent}%`, opacity: 1 }}
-                className={cn(
-                  `h-10 rounded-full absolute flex items-center justify-between px-4`,
-                  skill?.className
-                )}
-              >
-                <motion.h1
-                  transition={{ duration: 0.25, ease: 'easeIn', delay: skill.delay - 0.15 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-lg font-medium mr-2"
-                >
-                  {skill.label}
-                  <span className="text-xs font-medium text-secondary">
-                    {skill.learning && '*'}
-                  </span>
-                </motion.h1>
-                <motion.span
-                  transition={{ duration: 0.75, ease: 'easeIn', delay: skill.delay * 2 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-sm text-white"
-                >
-                  {skill.percent}%
-                </motion.span>
-              </motion.div>
+        <div className="mb-4">
+          <h2 className="text-3xl font-medium mb-1">Skills</h2>
+          <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-3 gap-2">
+            <div>
+              <h3 className="font-bold text-xl">Languages</h3>
+              <div className="font-medium font-mono text-secondary flex flex-col">
+                <span>Javascript</span>
+                <span>Typescript</span>
+                <span>Python</span>
+                <span>PHP</span>
+              </div>
             </div>
-          </motion.div>
-        ))}
 
-        <Container>
-          <p className="text-xs text-blue-500 font-medium">* = still learning</p>
-        </Container>
+            <div>
+              <h3 className="font-bold text-xl">Development</h3>
+              <div className="font-medium font-mono text-secondary flex flex-col">
+                <span>Linux</span>
+              </div>
+            </div>
 
-        <div className="my-4 flex items-center text-center flex-col justify-center text-lg">
-          <span className="text-2xl mb-1">Contact me</span>
+            <div>
+              <h3 className="font-bold text-xl">Frontend</h3>
+              <div className="font-medium font-mono text-secondary flex flex-col">
+                <span>React</span>
+                <span>CSS</span>
+                <span>Scss</span>
+                <span>Tailwindcss</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-xl">Backend</h3>
+              <div className="font-medium font-mono text-secondary flex flex-col">
+                <span>Node.js</span>
+                <span>Nestjs</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-xl">Tools</h3>
+              <div className="font-medium font-mono text-secondary flex flex-col">
+                <span>Neovim</span>
+                <span>Termux</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <Box>
-          <h1 className="text-lg font-medium">Discord</h1>
-          <span className="text-sm">Can Kolay#5578</span>
-        </Box>
+        <div className="mb-4">
+          <h2 className="text-3xl font-medium mb-1">My development journey</h2>
+          <div>
+            <div className="grid grid-cols-2 mb-2">
+              <h1 className="text-2xl font-bold text-primary-400">2022</h1>
+              <div>
+                <p className="flex items-center">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary">I started learning lua</p>
+                </p>
+              </div>
+            </div>
 
-        <Link href="mailto:cankolay3499@gmail.com" passHref>
-          <Box className="cursor-pointer">
-            <h1 className="text-lg font-medium">Email</h1>
-            <span className="text-sm">cankolay3499@gmail.com</span>
-          </Box>
-        </Link>
+            <div className="grid grid-cols-2 mb-2">
+              <h1 className="text-2xl font-bold text-primary-400">2021</h1>
+              <div>
+                <p className="flex">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary items-center">I started learning React</p>
+                </p>
 
-        <div className="my-4 flex items-center text-center flex-col justify-center text-lg">
-          <span className="text-2xl mb-1">Links</span>
+                <p className="flex">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary items-center">I started learning Tailwindcss</p>
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 mb-2">
+              <h1 className="text-2xl font-bold text-primary-400">2020</h1>
+              <div>
+                <p className="flex">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary items-center">I started learning Node.js</p>
+                </p>
+
+                <p className="flex">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary items-center">I started learning Python</p>
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2">
+              <h1 className="text-2xl font-bold text-primary-400">2019</h1>
+              <div>
+                <p className="flex">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary items-center">Learned basic HTML, CSS, JS</p>
+                </p>
+                <p className="flex">
+                  <span className="text-primary-600 mr-2">-</span>
+                  <p className="text-secondary items-center">My programming journey</p>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <Link href="https://github.com/CanKolay3499" passHref>
-          <Box className="cursor-pointer">
-            <h1 className="text-lg font-medium">Github</h1>
-            <span className="text-sm">My projects and other stuff</span>
-          </Box>
-        </Link>
-
-        <Link href="https://youtu.be/dQw4w9WgXcQ" passHref>
-          <a className="flex items-center justify-center text-sm font-medium text-white dark:text-black my-4">
-            Dont click this link
-          </a>
-        </Link>
       </Container>
     </>
   )
