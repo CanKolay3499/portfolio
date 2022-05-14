@@ -6,11 +6,18 @@ const config = {
   theme: {
     extend: {
       colors: {
-        gray: colors.neutral
+        gray: {
+          ...colors.neutral,
+          900: '#0F0E13',
+          800: '#151419',
+          700: '#232429'
+        },
+        primary: colors.indigo
       }
     },
     fontFamily: {
-      body: ['Poppins']
+      body: ['Outfit'],
+      mono: ['Roboto\\ Mono']
     }
   }
 }
