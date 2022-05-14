@@ -4,11 +4,19 @@
 
 @layer utilities {
   .bg-primary {
-    @apply bg-white dark:bg-black;
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .bg-secondary {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  .bg-tertiary {
+    @apply bg-gray-300 dark:bg-gray-700;
   }
 
   .border-primary {
-    @apply border-gray-200 dark:border-gray-800;
+    @apply border-gray-300 dark:border-gray-700;
   }
 
   .text-primary {
@@ -17,6 +25,14 @@
 
   .text-secondary {
     @apply text-gray-800 dark:text-gray-200;
+  }
+
+  .text-secondary-disabled {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  ._h-screen {
+    @apply h-[calc(100vh_-_4rem)];
   }
 }
 
