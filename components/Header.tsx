@@ -14,15 +14,8 @@ const Header: React.FC<{}> = () => {
   const { width } = useWindowDimensions()
 
   useEffect(() => {
-    const handleRouteChange = () => {
-      setHeader(false)
-    }
-
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [setHeader, router.events])
+    setHeader(false)
+  }, [router.asPath])
 
   type Link = {
     label: string
@@ -65,10 +58,10 @@ const Header: React.FC<{}> = () => {
       <>
         <motion.div
           className="fixed mx-auto flex justify-center items-center w-screen inset-0 h-screen z-50"
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 0 }}
+          exit={{ y: 50, opacity: 0 }}
         >
           <Container className="bg-primary fixed border border-primary rounded-2xl">
             <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
@@ -158,7 +151,7 @@ const Header: React.FC<{}> = () => {
                 <RiGithubLine />
               </a>
             </Link>
-            <AnimatePresence exitBeforeEnter>{width < 768 && <ToggleHeader />}</AnimatePresence>
+            {width < 768 && <ToggleHeader />}
           </div>
         </Container>
       </nav>
