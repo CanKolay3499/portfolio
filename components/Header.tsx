@@ -103,7 +103,7 @@ const Header: React.FC<{}> = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 w-screen h-screen bg-secondary !bg-opacity-95 backdrop-filter backdrop-blur-3xl z-40"
+          className="fixed inset-0 w-screen h-screen bg-secondary !bg-opacity-95 backdrop-blur-md z-40"
         ></motion.div>
       </>
     )
@@ -111,7 +111,7 @@ const Header: React.FC<{}> = () => {
 
   return (
     <>
-      <nav className="h-16 z-50 border-b border-primary backdrop-blur backdrop-filter !bg-opacity-50 bg-primary sticky w-screen top-0 flex items-center justify-center">
+      <nav className="h-16 z-50 border-b border-primary backdrop-blur-md bg-primary/75 sticky w-screen top-0 flex items-center justify-center">
         <Container className="flex justify-between items-center h-16">
           <Link href="/" passHref>
             <a className="flex items-center">

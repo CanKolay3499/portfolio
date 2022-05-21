@@ -17,10 +17,10 @@ const HomePage: React.FC<{}> = () => {
         <div className="mb-4">
           <h2 className="text-3xl font-medium mb-1">Short bio</h2>
           <div>
-            <p className="text-secondary-disabled font-mono">
+            <div className="text-secondary-disabled font-mono">
               Merhaba, My name is <span className="font-bold text-primary-500 text-lg">Can</span>. I
               living in Turkey 🇹🇷 and I&apos;m 13 years old
-            </p>
+            </div>
           </div>
         </div>
 

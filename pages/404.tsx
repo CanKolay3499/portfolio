@@ -18,9 +18,7 @@ const Error404Page: React.FC<{}> = () => {
         <span>you&apos;re lost.</span>
         <Link href="/" passHref>
           <a className="text-2xl mt-1 flex font-bold text-primary-400">
-            <p>
-              What about going to <span className="text-primary-600">Home page</span>?
-            </p>
+            What about going to <p className="text-primary-600 mx-1">Home page</p>?
           </a>
         </Link>
       </Container>

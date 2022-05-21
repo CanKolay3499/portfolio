@@ -48,10 +48,8 @@ const ProjectsPage: React.FC<{}> = () => {
                     key={index}
                   >
                     <Link href={repo.html_url} passHref>
-                      <a>
-                        <h2 className="text-3xl items-center flex font-medium text-primary-400">
-                          {repo.name}
-                        </h2>
+                      <a className="text-3xl items-center flex font-medium text-primary-400">
+                        {repo.name}
                       </a>
                     </Link>
                     {repo.fork && (
