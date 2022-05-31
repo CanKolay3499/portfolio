@@ -34,6 +34,10 @@
   ._h-screen {
     @apply h-[calc(100vh_-_4rem)];
   }
+
+  .blur-bg {
+    @apply bg-white/80 bg-gray-900/80 backdrop-filter backdrop-blur-[20px];
+  }
 }
 
 html {
