@@ -19,7 +19,7 @@ const HomePage: React.FC<{}> = () => {
           <div>
             <div className="text-secondary font-mono">
               Merhaba, My name is <span className="font-bold text-primary-400 text-lg">Can</span>. I
-              living in Turkey 🇹🇷 and I&apos;m 13 years o
+              live in Türkiye/Turkey and I&apos;m 13 years old
             </div>
             <span className="text-secondary-disabled text-xs font-medium">
               * Merhaba means hi in english.
