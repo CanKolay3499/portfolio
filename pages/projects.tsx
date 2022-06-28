@@ -6,14 +6,12 @@ import useSWR from 'swr'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const ProjectsPage: React.FC<{}> = () => {
-  const appName: string = process.env.NEXT_PUBLIC_APP_NAME
-
   const { data: repos }: any = useSWR('https://api.github.com/users/CanKolay3499/repos')
 
   return (
     <>
       <Head>
-        <title>Projects - {appName}</title>
+        <title>Projects - CanKolay3499</title>
       </Head>
 
       <Container>
@@ -26,7 +24,7 @@ const ProjectsPage: React.FC<{}> = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="mb-4 flex flex-col animate-pulse justify-center bg-secondary py-2 px-4 rounded-2xl"
+                className="mb-4 border border-primary shadow flex flex-col animate-pulse justify-center bg-secondary py-2 px-4 rounded-2xl"
               >
                 <div className="flex-1">
                   <div className="text-3xl mb-3 bg-tertiary h-3 rounded shadow w-9/12 block font-medium text-primary-400"></div>
@@ -44,7 +42,7 @@ const ProjectsPage: React.FC<{}> = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="mb-4 flex flex-col justify-center bg-secondary py-2 px-4 rounded-2xl"
+                    className="mb-4 border border-primary shadow cursor-pointer flex flex-col justify-center bg-secondary py-2 px-4 rounded-2xl"
                     key={index}
                   >
                     <Link href={repo.html_url} passHref>

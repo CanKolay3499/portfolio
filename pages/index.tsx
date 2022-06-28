@@ -3,12 +3,10 @@ import { Container } from '@/components'
 import Head from 'next/head'
 
 const HomePage: React.FC<{}> = () => {
-  const appName: string = process.env.NEXT_PUBLIC_APP_NAME
-
   return (
     <>
       <Head>
-        <title>About me - {appName}</title>
+        <title>About me - CanKolay3499</title>
       </Head>
 
       <Container>
