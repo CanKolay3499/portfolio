@@ -57,11 +57,11 @@ const Header: React.FC<{}> = () => {
     return (
       <>
         <motion.div
-          className="fixed mx-auto flex justify-center items-center w-screen inset-0 h-screen !z-50"
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="fixed mx-auto flex justify-center items-center w-screen inset-0 h-screen z-50"
+          transition={{ duration: 0.3 }}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ y: 50, opacity: 0 }}
+          exit={{ scale: 0, opacity: 0 }}
         >
           <Container className="bg-primary fixed border border-primary rounded-2xl">
             <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
@@ -99,11 +99,11 @@ const Header: React.FC<{}> = () => {
             e.preventDefault()
             setHeader(!header)
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.15 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 w-screen h-screen dark:bg-black/80 bg-gray-100/80 backdrop-filter backdrop-blur-[20px] z-40"
+          className="fixed inset-0 bg-secondary bg-opacity-50 backdrop-filter backdrop-blur-sm z-40"
         ></motion.div>
       </>
     )
@@ -111,21 +111,14 @@ const Header: React.FC<{}> = () => {
 
   return (
     <>
-      <nav className="h-16 !z-50 border-b border-primary fixed w-screen top-0 flex items-center justify-center bg-white/80 dark:bg-gray-900/80 backdrop-filter backdrop-blur-[20px] backdrop-saturate-[180%]">
+      <nav className={cn("h-16 z-50 transition duration-150 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center", !header ? 'bg-opacity-75 backdrop-filter backdrop-blur-sm' : '')}>
         <Container className="flex justify-between items-center h-16">
           <Link href="/" passHref>
             <a className="flex items-center">
               <Logo />
             </a>
           </Link>
-          <AnimatePresence exitBeforeEnter>
-            {header && width < 768 && (
-              <>
-                <MobileHeader />
-                <MobileHeaderOverlay />
-              </>
-            )}
-          </AnimatePresence>
+
           <div className="flex items-center">
             {width > 768 && (
               <div className="flex flex-row-reverse items-center">
@@ -155,6 +148,14 @@ const Header: React.FC<{}> = () => {
           </div>
         </Container>
       </nav>
+      <AnimatePresence exitBeforeEnter>
+        {header && width < 768 && (
+          <>
+            <MobileHeader />
+            <MobileHeaderOverlay />
+          </>
+        )}
+      </AnimatePresence>
       <div className="opacity-0 h-16">.</div>
     </>
   )

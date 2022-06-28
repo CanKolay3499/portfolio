@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '@/components'
+import { Box, Container } from '@/components'
 import Link from 'next/link'
 import Head from 'next/head'
 import useSWR from 'swr'
@@ -42,22 +42,23 @@ const ProjectsPage: React.FC<{}> = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="mb-4 border border-primary shadow cursor-pointer flex flex-col justify-center bg-secondary py-2 px-4 rounded-2xl"
                     key={index}
                   >
-                    <Link href={repo.html_url} passHref>
-                      <a className="text-3xl items-center flex font-medium text-primary-400">
-                        {repo.name}
-                      </a>
-                    </Link>
-                    {repo.fork && (
-                      <span className="font-medium my-2 text-secondary-disabled">Fork</span>
-                    )}
-                    {repo.description && (
-                      <p className="text-secondary-disabled text-sm font-bold font-mono">
-                        {repo.description}
-                      </p>
-                    )}
+                    <Box>
+                      <Link href={repo.html_url} passHref>
+                        <a className="text-3xl items-center flex font-medium text-primary-400">
+                          {repo.name}
+                        </a>
+                      </Link>
+                      {repo.fork && (
+                        <span className="font-medium my-2 text-secondary-disabled">Fork</span>
+                      )}
+                      {repo.description && (
+                        <p className="text-secondary-disabled text-sm font-bold font-mono">
+                          {repo.description}
+                        </p>
+                      )}
+                    </Box>
                   </motion.div>
                 )
               })}

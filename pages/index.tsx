@@ -17,11 +17,11 @@ const HomePage: React.FC<{}> = () => {
           <div>
             <div className="text-secondary font-mono">
               Merhaba, My name is <span className="font-bold text-primary-400 text-lg">Can</span>. I
-              live in Türkiye/Turkey and I&apos;m 13 years old
+              live in Turkey, Istanbul and I&apos;m 13 years old
             </div>
-            <span className="text-secondary-disabled text-xs font-medium">
+            <p className="text-secondary-disabled text-xs font-medium">
               * Merhaba means hi in english.
-            </span>
+            </p>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ const HomePage: React.FC<{}> = () => {
               <div className="font-medium font-mono text-secondary flex flex-col">
                 <span>React</span>
                 <span>CSS</span>
-                <span>Scss</span>
+                <span>Sass</span>
                 <span>Tailwindcss</span>
               </div>
             </div>
@@ -96,7 +96,7 @@ const HomePage: React.FC<{}> = () => {
 
                 <p className="flex">
                   <span className="text-primary-600 mr-2">-</span>
-                  <p className="text-secondary items-center">Started learning Tailwindcss & Scss</p>
+                  <p className="text-secondary items-center">Started learning Tailwindcss & Sass</p>
                 </p>
               </div>
             </div>

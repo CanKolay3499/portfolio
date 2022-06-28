@@ -29,7 +29,6 @@ const config = defineConfig({
     'text-primary': 'text-black dark:text-white',
     'text-secondary': 'text-gray-800 dark:text-gray-200',
     'text-secondary-disabled': 'text-gray-700 dark:text-gray-300',
-    'blur-bg': 'bg-white/80 bg-gray-900/80 backdrop-filter backdrop-blur-[20px]',
     '_h-screen': 'h-[calc(100vh_-_4rem)]'
   }
 })
