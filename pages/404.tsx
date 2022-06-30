@@ -4,12 +4,10 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 const Error404Page: React.FC<{}> = () => {
-  const appName: string = process.env.NEXT_PUBLIC_APP_NAME
-
   return (
     <>
       <Head>
-        <title>Error - 404 - {appName}</title>
+        <title>Error - 404 - CanKolay3499</title>
       </Head>
 
       <Container className="flex flex-col text-4xl font-bold justify-center gap-2 _h-screen">

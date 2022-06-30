@@ -35,7 +35,9 @@ const ProjectsPage: React.FC<{}> = () => {
             </>
           ) : (
             <>
-              {repos.map((repo: any, index: number) => {
+              {repos.filter((repo: any): boolean => {
+                return repo.name == 'CanKolay3499' ? false : true
+              }).map((repo: any, index: number): React.ReactNode => {
                 return (
                   <motion.div
                     transition={{ duration: 0.5 }}
@@ -48,11 +50,11 @@ const ProjectsPage: React.FC<{}> = () => {
                       <Link href={repo.html_url} passHref>
                         <a className="text-3xl items-center flex font-medium text-primary-400">
                           {repo.name}
+                          {repo.fork && (
+                            <span className="font-medium mx-2 text-secondary-disabled text-sm">(Fork)</span>
+                          )}
                         </a>
                       </Link>
-                      {repo.fork && (
-                        <span className="font-medium my-2 text-secondary-disabled">Fork</span>
-                      )}
                       {repo.description && (
                         <p className="text-secondary-disabled text-sm font-bold font-mono">
                           {repo.description}
