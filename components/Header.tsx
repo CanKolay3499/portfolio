@@ -61,9 +61,9 @@ const Header: React.FC<{}> = () => {
         <motion.div
           className="fixed mx-auto flex justify-center items-center inset-0 z-40"
           transition={{ duration: 0.3 }}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          exit={{ scale: 0 }}
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.5, opacity: 0 }}
         >
           <Container className="bg-primary fixed border border-primary rounded-2xl dark:shadow-2xl">
             <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
