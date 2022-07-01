@@ -23,17 +23,14 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
       </Head>
 
       <SWRConfig value={{ fetcher }}>
-        <motion.main transition={{ duration: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-          <Header />
-          <motion.main
-            transition={{ duration: 0.5 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            key={Math.random()}
-          >
-            <Component {...pageProps} />
-          </motion.main>
+        <Header />
+        <motion.main
+          transition={{ duration: 0.5, delay: 0.1 }}
+          initial={{ y: -25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          key={Math.random()}
+        >
+          <Component {...pageProps} />
         </motion.main>
       </SWRConfig>
     </>

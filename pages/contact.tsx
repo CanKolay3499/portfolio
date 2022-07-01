@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Container, Box } from '@/components'
 import Head from 'next/head'
 
-const ContactPage: React.FC<{}> = () => {
+const ContactPage: React.FC = () => {
   return (
     <>
       <Head>

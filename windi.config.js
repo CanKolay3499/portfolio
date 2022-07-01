@@ -28,8 +28,7 @@ const config = defineConfig({
     'border-primary': 'border-gray-300 dark:border-gray-700',
     'text-primary': 'text-black dark:text-white',
     'text-secondary': 'text-gray-800 dark:text-gray-200',
-    'text-secondary-disabled': 'text-gray-500 dark:text-gray-300',
-    '_h-screen': 'h-[calc(100vh-4rem)]'
+    'text-secondary-disabled': 'text-gray-500 dark:text-gray-300'
   }
 })
 

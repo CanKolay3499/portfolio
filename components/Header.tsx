@@ -7,15 +7,20 @@ import { RiMenu5Fill, RiCloseFill, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 
-const Header: React.FC<{}> = () => {
+const Header: React.FC = () => {
   const router = useRouter()
 
-  const [header, setHeader] = useState(false)
+  const [routeChanging, setRouteChanging] = useState<boolean | null>(null)
+  const [mobileMenu, setMobileMenu] = useState<boolean | null>(null)
+
   const { width } = useWindowDimensions()
 
   useEffect(() => {
-    setHeader(false)
-  }, [router.asPath])
+    router.events.on('routeChangeStart', (): void => { setRouteChanging(true) })
+    router.events.on('routeChangeComplete', (): void => { setRouteChanging(false)
+setMobileMenu(false)
+    })
+  }, [])
 
   type Link = {
     label: string
@@ -37,7 +42,8 @@ const Header: React.FC<{}> = () => {
     }
   ]
 
-  const buttonStyle: string = "bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl"
+  const buttonStyle: string =
+    'bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl'
 
   const ToggleHeader: React.FC = () => {
     return (
@@ -45,34 +51,33 @@ const Header: React.FC<{}> = () => {
         <button
           onClick={(e) => {
             e.preventDefault()
-            setHeader(!header)
+            setMobileMenu(!mobileMenu)
           }}
           className={buttonStyle}
         >
-          {header ? <RiCloseFill /> : <RiMenu5Fill />}
+          {mobileMenu ? <RiCloseFill /> : <RiMenu5Fill />}
         </button>
       </>
     )
   }
 
-  const MobileHeader: React.FC<{}> = () => {
+  const MobileMenu: React.FC = () => {
     return (
       <>
         <motion.div
           className="fixed mx-auto flex justify-center items-center inset-0 z-40"
           transition={{ duration: 0.3 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ y: -25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           exit={{ y: 25, opacity: 0 }}
         >
-          <Container className="bg-primary fixed border border-primary rounded-2xl dark:shadow-2xl">
+          <Container className="bg-primary top-20 fixed border border-primary rounded-2xl dark:shadow-2xl">
             <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
               <motion.h1 className="text-xl font-bold">Links</motion.h1>
-              <ToggleHeader />
             </div>
             <div className="flex flex-col py-2 items-center w-full px-4">
-              {links.map((link: Link, index: number) => {
-                const active = link.url == router.asPath
+              {links.map((link: Link, index: number): React.ReactNode => {
+                const active: boolean = link.url == router.asPath
                 return (
                   <Link href={link.url} key={index} passHref>
                     <motion.a
@@ -93,27 +98,28 @@ const Header: React.FC<{}> = () => {
     )
   }
 
-  const MobileHeaderOverlay: React.FC<{}> = () => {
+  const MobileMenuOverlay: React.FC = () => {
     return (
       <>
-        <motion.div onClick={(e) => {
-          e.preventDefault()
-          setHeader(!header)
-        }}
-          transition={{ duration: 0.30 }}
+        <motion.div
+          transition={{ duration: 0.15 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="z-30 fixed inset-0 bg-secondary bg-opacity-25 backdrop-filter backdrop-blur-sm"
-        >
-        </motion.div>
+          className="z-30 fixed inset-0 bg-secondary bg-opacity-25 backdrop-filter backdrop-blur"
+        ></motion.div>
       </>
     )
   }
 
   return (
     <>
-      <nav className={cn("h-16 z-50 transition duration-300 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center", !header ? 'bg-opacity-75 backdrop-filter backdrop-blur-sm' : '')}>
+      <nav
+        className={cn(
+          'h-16 z-50 transition duration-300 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center dark:shadow-2xl',
+          !mobileMenu ? 'bg-opacity-75 backdrop-filter backdrop-blur' : ''
+        )}
+      >
         <Container className="flex justify-between items-center h-16">
           <Link href="/" passHref>
             <a className="flex items-center">
@@ -131,7 +137,9 @@ const Header: React.FC<{}> = () => {
                       <motion.a
                         className={cn(
                           'ml-2 last:ml-0 transition duration-150',
-                          active ? 'font-bold text-primary' : 'text-secondary-disabled hover:text-primary focus:text-primary'
+                          active
+                            ? 'font-bold text-primary'
+                            : 'text-secondary-disabled hover:text-primary focus:text-primary'
                         )}
                       >
                         {link.label}
@@ -149,17 +157,18 @@ const Header: React.FC<{}> = () => {
             {width < 768 && <ToggleHeader />}
           </div>
         </Container>
-
       </nav>
       <div className="opacity-0 h-16">.</div>
-      <AnimatePresence exitBeforeEnter>
-        {header && width < 768 && (
-          <>
-            <MobileHeader />
-            <MobileHeaderOverlay />
-          </>
-        )}
-      </AnimatePresence>
+      {width < 768 && !routeChanging && (
+        <AnimatePresence>
+          {mobileMenu && (
+            <>
+              <MobileMenu />
+              <MobileMenuOverlay />
+            </>
+          )}
+        </AnimatePresence>
+      )}
     </>
   )
 }

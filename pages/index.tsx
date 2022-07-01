@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from '@/components'
 import Head from 'next/head'
 
-const HomePage: React.FC<{}> = () => {
+const HomePage: React.FC = () => {
   return (
     <>
       <Head>
