@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Header } from '@/components'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
@@ -24,14 +24,17 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
 
       <SWRConfig value={{ fetcher }}>
         <Header />
-        <motion.main
-          transition={{ duration: 0.5, delay: 0.1 }}
-          initial={{ y: -25, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          key={Math.random()}
-        >
-          <Component {...pageProps} />
-        </motion.main>
+        <AnimatePresence exitBeforeEnter>
+          <motion.main
+            transition={{ duration: 0.50 }}
+            initial={{ y: -25, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 50, opacity: 0 }}
+            key={Math.random()}
+          >
+            <Component {...pageProps} />
+          </motion.main>
+        </AnimatePresence>
       </SWRConfig>
     </>
   )

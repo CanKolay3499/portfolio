@@ -10,17 +10,13 @@ import cn from 'classnames'
 const Header: React.FC = () => {
   const router = useRouter()
 
-  const [routeChanging, setRouteChanging] = useState<boolean | null>(null)
   const [mobileMenu, setMobileMenu] = useState<boolean | null>(null)
 
   const { width } = useWindowDimensions()
 
   useEffect(() => {
-    router.events.on('routeChangeStart', (): void => { setRouteChanging(true) })
-    router.events.on('routeChangeComplete', (): void => { setRouteChanging(false)
-setMobileMenu(false)
-    })
-  }, [])
+    setMobileMenu(false)
+  }, [router.asPath])
 
   type Link = {
     label: string
@@ -66,14 +62,14 @@ setMobileMenu(false)
       <>
         <motion.div
           className="fixed mx-auto flex justify-center items-center inset-0 z-40"
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.25 }}
           initial={{ y: -25, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 25, opacity: 0 }}
+          exit={{ opacity: 0 }}
         >
           <Container className="bg-primary top-20 fixed border border-primary rounded-2xl dark:shadow-2xl">
             <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
-              <motion.h1 className="text-xl font-bold">Links</motion.h1>
+              <motion.h1 exit={{ opacity: 0 }} className="text-xl font-bold">Links</motion.h1>
             </div>
             <div className="flex flex-col py-2 items-center w-full px-4">
               {links.map((link: Link, index: number): React.ReactNode => {
@@ -81,6 +77,7 @@ setMobileMenu(false)
                 return (
                   <Link href={link.url} key={index} passHref>
                     <motion.a
+                      exit={{ opacity: 0 }}
                       className={cn(
                         'mb-1 last:mb-0',
                         active ? 'font-medium text-primary' : 'text-secondary'
@@ -102,7 +99,7 @@ setMobileMenu(false)
     return (
       <>
         <motion.div
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.25 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -116,7 +113,7 @@ setMobileMenu(false)
     <>
       <nav
         className={cn(
-          'h-16 z-50 transition duration-300 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center dark:shadow-2xl',
+          'h-16 z-50 transition duration-250 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center dark:shadow-2xl',
           !mobileMenu ? 'bg-opacity-75 backdrop-filter backdrop-blur' : ''
         )}
       >
@@ -159,7 +156,7 @@ setMobileMenu(false)
         </Container>
       </nav>
       <div className="opacity-0 h-16">.</div>
-      {width < 768 && !routeChanging && (
+      {width < 768 && (
         <AnimatePresence>
           {mobileMenu && (
             <>
