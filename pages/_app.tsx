@@ -31,6 +31,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
             key={Math.random()}
+            className="min-h-screen_"
           >
             <Component {...pageProps} />
           </motion.main>

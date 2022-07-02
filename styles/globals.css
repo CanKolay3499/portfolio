@@ -5,3 +5,7 @@ html {
 * {
   @apply font-body;
 }
+
+.min-h-screen_ {
+  min-height: calc(100vh - 12.1rem)
+}
