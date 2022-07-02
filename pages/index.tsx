@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>About me - CanKolay3499</title>
+        <title>About me • Can Kolay</title>
       </Head>
 
       <Container>
@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
               live in Turkey, Istanbul and I&apos;m 13 years old
             </div>
             <p className="text-secondary-disabled text-xs font-medium">
-              * Merhaba means hi in english.
+              - Merhaba means "hi" in english.
             </p>
           </div>
         </div>

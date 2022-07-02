@@ -17,7 +17,7 @@ const Document: React.FC = () => {
 
         <meta property="og:type" content="website" />
         <meta property="og:title" content="CanKolay3499" />
-        <meta property="og:description" content="Portfolio - CanKolay3499" />
+        <meta property="og:description" content="My personal website" />
       </Head>
       <body className="text-primary bg-primary">
         <Main />

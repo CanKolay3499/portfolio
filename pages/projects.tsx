@@ -11,7 +11,7 @@ const ProjectsPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Projects - CanKolay3499</title>
+        <title>Projects • Can Kolay</title>
       </Head>
 
       <Container>
@@ -27,7 +27,7 @@ const ProjectsPage: React.FC = () => {
                 className="mb-4 border border-primary shadow flex flex-col animate-pulse justify-center bg-secondary py-2 px-4 rounded-2xl"
               >
                 <div className="flex-1">
-                  <div className="text-3xl mb-3 bg-tertiary h-3 rounded shadow w-9/12 block font-medium text-primary-400"></div>
+                  <div className="text-3xl mb-3 bg-tertiary h-4 rounded shadow w-6/12 block font-medium text-primary-400"></div>
                   <div className="text-3xl mb-1 bg-tertiary h-3 rounded shadow w-full block font-medium text-primary-400"></div>
                   <div className="text-3xl bg-tertiary h-3 rounded shadow w-full block font-medium text-primary-400"></div>
                 </div>

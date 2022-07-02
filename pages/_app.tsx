@@ -1,6 +1,6 @@
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Header } from '@/components'
+import { Footer, Header } from '@/components'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
 import axios from 'axios'
@@ -34,6 +34,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
           >
             <Component {...pageProps} />
           </motion.main>
+          <Footer />
         </AnimatePresence>
       </SWRConfig>
     </>

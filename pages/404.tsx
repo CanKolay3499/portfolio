@@ -7,7 +7,7 @@ const Error404Page: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Error - 404 - CanKolay3499</title>
+        <title>Error _ 404 _ Can Kolay</title>
       </Head>
 
       <Container>

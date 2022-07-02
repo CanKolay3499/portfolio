@@ -7,7 +7,7 @@ const ContactPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Contact me - CanKolay3499</title>
+        <title>Contact me • Can Kolay</title>
       </Head>
 
       <Container>
