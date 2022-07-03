@@ -7,5 +7,5 @@ html {
 }
 
 .min-h-screen_ {
-  min-height: calc(100vh - 12.1rem)
+  min-height: calc(100vh - 12.1rem);
 }

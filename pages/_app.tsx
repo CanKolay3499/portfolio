@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Footer, Header } from '@/components'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
-import axios from 'axios'
+import { fetcher } from '@/lib'
 
 import type { AppProps } from 'next/app'
 
@@ -11,8 +11,6 @@ import 'windi.css'
 import '@/styles/globals.css'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  const fetcher: any = (url: string) => axios.get(url).then((res) => res.data)
-
   return (
     <>
       <Head>
@@ -29,7 +27,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
             transition={{ duration: 0.25 }}
             initial={{ y: -25, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 50, opacity: 0 }}
+            exit={{ y: 25, opacity: 0 }}
             key={Math.random()}
             className="min-h-screen_"
           >

@@ -69,7 +69,7 @@ const Header: React.FC = () => {
         >
           <Container className="bg-primary top-20 fixed border border-primary rounded-2xl dark:shadow-2xl">
             <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
-              <motion.h1 exit={{ opacity: 0 }} className="text-xl font-bold">Links</motion.h1>
+              <motion.h1 className="text-xl font-bold">Links</motion.h1>
             </div>
             <div className="flex flex-col py-2 items-center w-full px-4">
               {links.map((link: Link, index: number): React.ReactNode => {
@@ -77,7 +77,6 @@ const Header: React.FC = () => {
                 return (
                   <Link href={link.url} key={index} passHref>
                     <motion.a
-                      exit={{ opacity: 0 }}
                       className={cn(
                         'mb-1 last:mb-0',
                         active ? 'font-medium text-primary' : 'text-secondary'
@@ -111,9 +110,9 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <nav
+      <motion.nav
         className={cn(
-          'h-16 z-50 transition duration-250 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center dark:shadow-2xl',
+          'h-16 z-50 transition duration-250 border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center dark:shadow-2xl',
           !mobileMenu ? 'bg-opacity-75 backdrop-filter backdrop-blur' : ''
         )}
       >
@@ -126,7 +125,7 @@ const Header: React.FC = () => {
 
           <div className="flex items-center">
             {width > 768 && (
-              <div className="flex flex-row-reverse items-center">
+              <motion.div className="flex flex-row-reverse items-center">
                 {links.map((link: Link, index: number) => {
                   const active = link.url == router.asPath
                   return (
@@ -144,7 +143,7 @@ const Header: React.FC = () => {
                     </Link>
                   )
                 })}
-              </div>
+              </motion.div>
             )}
             <Link href="https://github.com/CanKolay3499" passHref>
               <a target="_blank" className={buttonStyle}>
@@ -154,8 +153,7 @@ const Header: React.FC = () => {
             {width < 768 && <ToggleHeader />}
           </div>
         </Container>
-      </nav>
-      <div className="opacity-0 h-16">.</div>
+      </motion.nav>
       {width < 768 && (
         <AnimatePresence>
           {mobileMenu && (

@@ -8,6 +8,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 const ProjectsPage: React.FC = () => {
   const { data: repos }: any = useSWR('https://api.github.com/users/CanKolay3499/repos')
 
+  repos && console.log(repos)
+
   return (
     <>
       <Head>
@@ -63,6 +65,20 @@ const ProjectsPage: React.FC = () => {
                           <p className="text-secondary-disabled text-sm font-bold font-mono">
                             {repo.description}
                           </p>
+                        )}
+                        {repo.topics && (
+                          <div className="mt-1 flex items-center">
+                            {repo.topics.map((topic: string, index: number): React.ReactNode => {
+                              return (
+                                <div
+                                  className="bg-primary-400 rounded-full px-4 mr-2 last:mr-0"
+                                  key={index}
+                                >
+                                  {topic}
+                                </div>
+                              )
+                            })}
+                          </div>
                         )}
                       </Box>
                     </motion.div>
