@@ -8,8 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 const ProjectsPage: React.FC = () => {
   const { data: repos }: any = useSWR('https://api.github.com/users/CanKolay3499/repos')
 
-  repos && console.log(repos)
-
   return (
     <>
       <Head>
