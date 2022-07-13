@@ -3,10 +3,12 @@ import { Container } from '@/components'
 import Head from 'next/head'
 
 const HomePage: React.FC = () => {
+  const title: string = process.env.NEXT_PUBLIC_TITLE
+
   return (
     <>
       <Head>
-        <title>About me • Can Kolay</title>
+        <title>About me • {title}</title>
       </Head>
 
       <Container>
@@ -16,12 +18,9 @@ const HomePage: React.FC = () => {
           <h2 className="text-3xl font-medium mb-1">Short bio</h2>
           <div>
             <div className="text-secondary font-mono">
-              Merhaba, My name is <span className="font-bold text-primary-400 text-lg">Can</span>. I
+              Hi, My name is <span className="font-bold text-primary-400 text-lg">Can</span>. I
               live in Turkey, Istanbul and I&apos;m 13 years old
             </div>
-            <p className="text-secondary-disabled text-xs font-medium">
-              - Merhaba means hi in english.
-            </p>
           </div>
         </div>
 

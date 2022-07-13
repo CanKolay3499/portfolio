@@ -4,10 +4,12 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 const Error404Page: React.FC = () => {
+  const title: string = process.env.NEXT_PUBLIC_TITLE
+
   return (
     <>
       <Head>
-        <title>Error _ 404 _ Can Kolay</title>
+        <title>Error • 404 • {title}</title>
       </Head>
 
       <Container>

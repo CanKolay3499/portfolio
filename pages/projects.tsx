@@ -6,12 +6,15 @@ import useSWR from 'swr'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const ProjectsPage: React.FC = () => {
-  const { data: repos }: any = useSWR('https://api.github.com/users/CanKolay3499/repos')
+  const title: string = process.env.NEXT_PUBLIC_TITLE
+  const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME
+
+  const { data: repos }: any = useSWR(`https://api.github.com/users/${githubUsername}/repos`)
 
   return (
     <>
       <Head>
-        <title>Projects • Can Kolay</title>
+        <title>Projects • {title}</title>
       </Head>
 
       <Container>

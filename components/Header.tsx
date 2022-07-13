@@ -14,6 +14,8 @@ const Header: React.FC = () => {
 
   const { width } = useWindowDimensions()
 
+  const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME
+
   useEffect(() => {
     setMobileMenu(false)
   }, [router.asPath])
@@ -63,8 +65,8 @@ const Header: React.FC = () => {
         <motion.div
           className="fixed mx-auto flex justify-center items-center inset-0 z-40"
           transition={{ duration: 0.25 }}
-          initial={{ y: -25, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <Container className="bg-primary top-20 fixed border border-primary rounded-2xl dark:shadow-2xl">
@@ -145,7 +147,7 @@ const Header: React.FC = () => {
                 })}
               </motion.div>
             )}
-            <Link href="https://github.com/CanKolay3499" passHref>
+            <Link href={"https://github.com/" + githubUsername} passHref>
               <a target="_blank" className={buttonStyle}>
                 <RiGithubLine />
               </a>
