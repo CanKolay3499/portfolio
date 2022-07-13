@@ -6,6 +6,7 @@
   "author": "Can Kolay <cankolay3499@gmail.com>",
   "license": "GPL-3.0-or-later",
   "scripts": {
+    "postbuild": "next-sitemap",
     "start": "next start",
     "build": "next build",
     "lint": "next lint",
