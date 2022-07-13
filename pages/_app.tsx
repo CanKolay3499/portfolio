@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Footer, Header } from '@/components'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
-import { fetcher, pageview, event } from '@/lib'
+import { fetcher, pageview } from '@/lib'
 import { useRouter } from 'next/router'
 
 import type { AppProps } from 'next/app'
