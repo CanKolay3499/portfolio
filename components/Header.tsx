@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import { Container, Logo } from '@/components'
 import Link from 'next/link'
 import { useWindowDimensions } from '@/hooks'
-import { AnimatePresence, motion } from 'framer-motion'
 import { RiMenu5Fill, RiCloseFill, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
+import { Dialog, Transition } from '@headlessui/react'
 
 const Header: React.FC = () => {
   const router = useRouter()
@@ -43,79 +43,12 @@ const Header: React.FC = () => {
   const buttonStyle: string =
     'bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl'
 
-  const ToggleHeader: React.FC = () => {
-    return (
-      <>
-        <button
-          onClick={(e) => {
-            e.preventDefault()
-            setMobileMenu(!mobileMenu)
-          }}
-          className={buttonStyle}
-        >
-          {mobileMenu ? <RiCloseFill /> : <RiMenu5Fill />}
-        </button>
-      </>
-    )
-  }
-
-  const MobileMenu: React.FC = () => {
-    return (
-      <>
-        <motion.div
-          className="fixed mx-auto flex justify-center items-center inset-0 z-40"
-          transition={{ duration: 0.25 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <Container className="bg-primary top-20 fixed border border-primary rounded-2xl dark:shadow-2xl">
-            <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
-              <motion.h1 className="text-xl font-bold">Links</motion.h1>
-            </div>
-            <div className="flex flex-col py-2 items-center w-full px-4">
-              {links.map((link: Link, index: number): React.ReactNode => {
-                const active: boolean = link.url == router.asPath
-                return (
-                  <Link href={link.url} key={index} passHref>
-                    <motion.a
-                      className={cn(
-                        'mb-1 last:mb-0',
-                        active ? 'font-medium text-primary' : 'text-secondary'
-                      )}
-                    >
-                      {link.label}
-                    </motion.a>
-                  </Link>
-                )
-              })}
-            </div>
-          </Container>
-        </motion.div>
-      </>
-    )
-  }
-
-  const MobileMenuOverlay: React.FC = () => {
-    return (
-      <>
-        <motion.div
-          transition={{ duration: 0.25 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="z-30 fixed inset-0 bg-secondary bg-opacity-25 backdrop-filter backdrop-blur"
-        ></motion.div>
-      </>
-    )
-  }
-
   return (
     <>
-      <motion.nav
+      <nav
         className={cn(
           'h-16 z-50 transition duration-250 border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center dark:shadow-2xl',
-          !mobileMenu ? 'bg-opacity-75 backdrop-filter backdrop-blur' : ''
+          !mobileMenu ? 'bg-opacity-75 backdrop-blur' : ''
         )}
       >
         <Container className="flex justify-between items-center h-16">
@@ -127,12 +60,12 @@ const Header: React.FC = () => {
 
           <div className="flex items-center">
             {width > 768 && (
-              <motion.div className="flex flex-row-reverse items-center">
+              <div className="flex flex-row-reverse items-center">
                 {links.map((link: Link, index: number) => {
                   const active = link.url == router.asPath
                   return (
                     <Link href={link.url} key={index} passHref>
-                      <motion.a
+                      <a
                         className={cn(
                           'ml-2 last:ml-0 transition duration-150',
                           active
@@ -141,30 +74,81 @@ const Header: React.FC = () => {
                         )}
                       >
                         {link.label}
-                      </motion.a>
+                      </a>
                     </Link>
                   )
                 })}
-              </motion.div>
+              </div>
             )}
-            <Link href={"https://github.com/" + githubUsername} passHref>
+
+            <Link href={'https://github.com/' + githubUsername} passHref>
               <a target="_blank" className={buttonStyle}>
                 <RiGithubLine />
               </a>
             </Link>
-            {width < 768 && <ToggleHeader />}
+
+            {width < 768 && (
+              <button onClick={() => setMobileMenu(!mobileMenu)} className={buttonStyle}>
+                {mobileMenu ? <RiCloseFill /> : <RiMenu5Fill />}
+              </button>
+            )}
           </div>
         </Container>
-      </motion.nav>
+      </nav>
+
       {width < 768 && (
-        <AnimatePresence>
-          {mobileMenu && (
-            <>
-              <MobileMenu />
-              <MobileMenuOverlay />
-            </>
-          )}
-        </AnimatePresence>
+        <Transition appear show={mobileMenu} as={Fragment}>
+          <Dialog className="relative" onClose={() => setMobileMenu(false)} as="div">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed z-30 backdrop-blur-sm inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <div className="fixed z-50 inset-0 items-center min-h-full w-screen justify-center overflow-y-auto flex">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-90"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-90"
+              >
+                <Dialog.Panel className="transform fixed top-20 transition-all bg-primary overflow-hidden w-full max-w-sm border border-primary rounded-2xl">
+                  <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
+                    <Dialog.Title as="h1" className="text-xl font-bold !p-0 !m-0">
+                      Links
+                    </Dialog.Title>
+                  </div>
+                  <div className="flex flex-col py-2 items-center w-full px-4">
+                    {links.map((link: Link, index: number): React.ReactNode => {
+                      const active: boolean = link.url == router.asPath
+                      return (
+                        <Link href={link.url} key={index} passHref>
+                          <a
+                            className={cn(
+                              'mb-1 last:mb-0',
+                              active ? 'font-medium text-primary' : 'text-secondary'
+                            )}
+                          >
+                            {link.label}
+                          </a>
+                        </Link>
+                      )
+                    })}
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </Dialog>
+        </Transition>
       )}
     </>
   )
