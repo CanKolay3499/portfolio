@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-4">
+        <div data-nosnippet className="mb-4">
           <h2 className="text-3xl font-medium mb-1">Skills</h2>
           <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-3 gap-2">
             {Object.keys(data.homePage.skills).map(
@@ -45,7 +45,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="mb-4">
+        <div data-nosnippet className="mb-4">
           <h2 className="text-3xl font-medium mb-1">My development journey</h2>
           <div>
             {Object.keys(data.homePage.journey)

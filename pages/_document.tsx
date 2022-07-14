@@ -31,6 +31,9 @@ const Document: React.FC = () => {
         <meta name="description" content="Portfolio - CanKolay3499" />
         <meta name="theme-color" content="#FFFFFF" />
 
+        <meta name="author" content="Can Kolay" />
+        <meta name="keywords" content="About, Projects, Contact About Can Kolay, Can Kolay About, Can Kolay Projects, Projects Can Kolay, Contact Can Kolay, Can Kolay Contact" />
+
         <meta property="og:type" content="website" />
         <meta property="og:title" content="CanKolay3499" />
         <meta property="og:description" content="My personal website" />
