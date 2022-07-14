@@ -14,7 +14,7 @@ const ContactPage: React.FC = () => {
       <Container>
         <h1 className="text-4xl font-bold mb-6 mt-2">Contact me</h1>
 
-        {Object.keys(data.contact).map((x: any, index: number): React.ReactNode => {
+        {Object.keys(data.contact).map((x: string, index: number): React.ReactNode => {
           return (
             <Box key={index}>
               {data.contact[x].link ? (
