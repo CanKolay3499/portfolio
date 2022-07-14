@@ -41,7 +41,7 @@ const Header: React.FC = () => {
   ]
 
   const buttonStyle: string =
-    'bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl'
+    'dark:shadow-2xl bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl'
 
   return (
     <>
@@ -121,7 +121,7 @@ const Header: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-90"
               >
-                <Dialog.Panel className="transform fixed top-20 transition-all bg-primary overflow-hidden w-full max-w-sm border border-primary rounded-2xl">
+                <Dialog.Panel className="transform fixed top-20 transition-all bg-primary overflow-hidden w-full max-w-sm border border-primary rounded-2xl dark:shadow-2xl">
                   <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
                     <Dialog.Title as="h1" className="text-xl font-bold !p-0 !m-0">
                       Links
