@@ -1,9 +1,8 @@
 import React from 'react'
 import { Html, Head, Main, NextScript } from 'next/document'
+import data from '@/data'
 
 const Document: React.FC = () => {
-  const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
-
   return (
     <Html lang="en">
       <Head>
@@ -12,10 +11,7 @@ const Document: React.FC = () => {
           rel="stylesheet"
         />
 
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-        />
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.googleAnalyticsId}`} />
 
         <script
           dangerouslySetInnerHTML={{
@@ -23,10 +19,10 @@ const Document: React.FC = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}', {
+            gtag('config', '${data.googleAnalyticsId}', {
               page_path: window.location.pathname,
             });
-          `,
+          `
           }}
         />
 

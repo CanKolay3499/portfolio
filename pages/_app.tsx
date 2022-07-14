@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Footer, Header } from '@/components'
+import { Header } from '@/components'
 import Head from 'next/head'
 import { SWRConfig } from 'swr'
 import { fetcher, pageview } from '@/lib'
@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 
 import type { AppProps } from 'next/app'
 
-import 'windi.css'
 import '@/styles/globals.css'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
@@ -39,7 +38,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
         <Header />
         <AnimatePresence exitBeforeEnter>
           <motion.main
-            transition={{ duration: 0.25 }}
+            transition={{ duration: 0.2 }}
             initial={{ y: -25, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 25, opacity: 0 }}
@@ -48,7 +47,6 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
           >
             <Component {...pageProps} />
           </motion.main>
-          <Footer />
         </AnimatePresence>
       </SWRConfig>
     </>

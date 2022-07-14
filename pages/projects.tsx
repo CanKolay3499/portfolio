@@ -4,17 +4,15 @@ import Link from 'next/link'
 import Head from 'next/head'
 import useSWR from 'swr'
 import { AnimatePresence, motion } from 'framer-motion'
+import data from '@/data'
 
 const ProjectsPage: React.FC = () => {
-  const title: string = process.env.NEXT_PUBLIC_TITLE
-  const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME
-
-  const { data: repos }: any = useSWR(`https://api.github.com/users/${githubUsername}/repos`)
+  const { data: repos }: any = useSWR(`https://api.github.com/users/${data.githubUsername}/repos`)
 
   return (
     <>
       <Head>
-        <title>Projects • {title}</title>
+        <title>Projects • {data.title}</title>
       </Head>
 
       <Container>

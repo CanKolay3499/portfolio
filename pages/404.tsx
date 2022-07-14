@@ -2,14 +2,13 @@ import React from 'react'
 import { Container } from '@/components'
 import Link from 'next/link'
 import Head from 'next/head'
+import data from '@/data'
 
 const Error404Page: React.FC = () => {
-  const title: string = process.env.NEXT_PUBLIC_TITLE
-
   return (
     <>
       <Head>
-        <title>Error • 404 • {title}</title>
+        <title>Error • 404 • {data.title}</title>
       </Head>
 
       <Container>
