@@ -27,7 +27,7 @@
     "typescript": "4.7.4"
   },
   "dependencies": {
-    "@headlessui/react": "^0.0.0-insiders.a294fdb",
+    "@headlessui/react": "^0.3.0",
     "axios": "^0.27.2",
     "framer-motion": "^6.3.16",
     "next": "^12.2.1-canary.1",
