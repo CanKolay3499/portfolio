@@ -11,7 +11,10 @@ const Document: React.FC = () => {
           rel="stylesheet"
         />
 
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${data.googleAnalyticsId}`} />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${data.googleAnalyticsId}`}
+        />
 
         <script
           dangerouslySetInnerHTML={{
@@ -32,7 +35,10 @@ const Document: React.FC = () => {
         <meta name="theme-color" content="#FFFFFF" />
 
         <meta name="author" content="Can Kolay" />
-        <meta name="keywords" content="About, Projects, Contact About Can Kolay, Can Kolay About, Can Kolay Projects, Projects Can Kolay, Contact Can Kolay, Can Kolay Contact" />
+        <meta
+          name="keywords"
+          content="About, Projects, Contact About Can Kolay, Can Kolay About, Can Kolay Projects, Projects Can Kolay, Contact Can Kolay, Can Kolay Contact"
+        />
 
         <meta property="og:type" content="website" />
         <meta property="og:title" content="CanKolay3499" />

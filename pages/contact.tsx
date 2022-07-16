@@ -24,7 +24,9 @@ const ContactPage: React.FC = () => {
               ) : (
                 <h2 className="text-3xl items-center flex font-medium text-primary-400">{x}</h2>
               )}
-              <p className="text-secondary-disabled text-sm font-bold font-mono">{data.contact[x].value}</p>
+              <p className="text-secondary-disabled text-sm font-bold font-mono">
+                {data.contact[x].value}
+              </p>
             </Box>
           )
         })}
