@@ -45,7 +45,10 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <nav
+      <header
+            transition={{ duration: 0.2 }}
+            initial={{ y: -25, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
         className={cn(
           'h-16 z-50 transition duration-250 border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center dark:shadow-2xl',
           !mobileMenu ? 'bg-opacity-75 backdrop-blur' : ''
@@ -94,7 +97,7 @@ const Header: React.FC = () => {
             )}
           </div>
         </Container>
-      </nav>
+      </header>
 
       {width < 768 && (
         <Transition appear show={mobileMenu} as={Fragment}>

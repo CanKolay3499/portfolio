@@ -42,7 +42,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
             initial={{ y: -25, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 25, opacity: 0 }}
-            key={Math.random()}
+            key={router.asPath}
             className="min-h-screen_"
           >
             <Component {...pageProps} />
