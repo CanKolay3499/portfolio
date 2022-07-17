@@ -47,8 +47,8 @@ const Header: React.FC = () => {
     <>
       <header
         className={cn(
-          'h-16 z-50 transition duration-250 border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center dark:shadow-2xl',
-          !mobileMenu ? 'bg-opacity-75 backdrop-blur' : ''
+          'h-16 z-50 transition duration-250 backdrop-blur border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center dark:shadow-2xl',
+          !mobileMenu ? 'bg-opacity-75' : ''
         )}
       >
         <Container className="flex justify-between items-center h-16">
