@@ -14,7 +14,7 @@ const Box: React.FC<BoxProps> = (props: BoxProps) => {
       <div
         {...props}
         className={cn(
-          'mb-4 border border-primary dark:shadow-2xl cursor-pointer flex flex-col justify-center bg-secondary py-2 px-4 rounded-2xl',
+          'mb-4 border border-primary cursor-pointer bg-primary py-2 px-4 rounded-2xl',
           props.className
         )}
       >

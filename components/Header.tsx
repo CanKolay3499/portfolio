@@ -6,6 +6,7 @@ import { RiMenu5Fill, RiCloseFill, RiGithubLine } from 'react-icons/ri'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import { Dialog, Transition } from '@headlessui/react'
+import data from '@/data'
 
 const Header: React.FC = () => {
   const router = useRouter()
@@ -13,8 +14,6 @@ const Header: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState<boolean | null>(null)
 
   const { width } = useWindowDimensions()
-
-  const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME
 
   useEffect(() => {
     setMobileMenu(false)
@@ -41,16 +40,11 @@ const Header: React.FC = () => {
   ]
 
   const buttonStyle: string =
-    'dark:shadow-2xl bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-xl'
+    'bg-secondary ml-2 border border-primary p-2 flex items-center h-10 w-10 text-3xl justify-center rounded-full'
 
   return (
     <>
-      <header
-        className={cn(
-          'h-16 z-50 transition duration-250 backdrop-blur border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center dark:shadow-2xl',
-          !mobileMenu ? 'bg-opacity-75' : ''
-        )}
-      >
+      <header className="h-16 z-50 border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center">
         <Container className="flex justify-between items-center h-16">
           <Link href="/" passHref>
             <a className="flex items-center">
@@ -81,7 +75,7 @@ const Header: React.FC = () => {
               </div>
             )}
 
-            <Link href={'https://github.com/' + githubUsername} passHref>
+            <Link href={'https://github.com/' + data.githubUsername} passHref>
               <a target="_blank" className={buttonStyle}>
                 <RiGithubLine />
               </a>
@@ -98,7 +92,7 @@ const Header: React.FC = () => {
 
       {width < 768 && (
         <Transition appear show={mobileMenu} as={Fragment}>
-          <Dialog className="relative" onClose={() => setMobileMenu(false)} as="div">
+          <Dialog onClose={() => setMobileMenu(false)} as="div">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -121,9 +115,9 @@ const Header: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-90"
               >
-                <Dialog.Panel className="transform fixed top-20 transition-all bg-primary overflow-hidden w-full max-w-sm border border-primary rounded-2xl dark:shadow-2xl">
-                  <div className="h-16 w-full px-4 border-b border-primary flex items-center justify-between">
-                    <Dialog.Title as="h1" className="text-xl font-bold !p-0 !m-0">
+                <Dialog.Panel className="fixed top-20 bg-primary overflow-hidden w-11/12 max-w-sm border border-primary rounded-2xl shadow-2xl">
+                  <div className="h-16 w-full px-4 border-primary border-b flex items-center justify-between">
+                    <Dialog.Title as="h1" className="text-2xl font-bold !p-0 !m-0">
                       Links
                     </Dialog.Title>
                   </div>

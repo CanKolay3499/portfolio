@@ -17,15 +17,11 @@ html {
   }
 
   .bg-secondary {
-    @apply bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 transition duration-150;
-  }
-
-  .bg-tertiary {
-    @apply bg-gray-100 dark:bg-gray-700;
+    @apply bg-gray-100 dark:bg-gray-800;
   }
 
   .border-primary {
-    @apply border-gray-300 dark:border-gray-700;
+    @apply border-gray-200 dark:border-gray-700;
   }
 
   .text-primary {
