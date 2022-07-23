@@ -8,6 +8,10 @@ import cn from 'classnames'
 import { Dialog, Transition } from '@headlessui/react'
 import data from '@/data'
 
+type PageTitleProps = {
+  title: string | number
+}
+
 const Header: React.FC = () => {
   const router = useRouter()
 
@@ -44,7 +48,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className="h-16 z-50 border-b border-primary bg-primary sticky w-screen top-0 flex items-center justify-center">
+      <header className="h-16 z-50 border-b border-primary bg-primary fixed w-screen top-0 flex items-center justify-center">
         <Container className="flex justify-between items-center h-16">
           <Link href="/" passHref>
             <a className="flex items-center">
@@ -95,20 +99,20 @@ const Header: React.FC = () => {
           <Dialog onClose={() => setMobileMenu(false)} as="div">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
+              enter="ease-out duration-200"
               enterFrom="opacity-0"
               enterTo="opacity-100"
               leave="ease-in duration-200"
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="fixed z-30 backdrop-blur-sm inset-0 bg-black bg-opacity-25" />
+              <div className="fixed z-[25] backdrop-blur-sm inset-0 bg-black bg-opacity-25" />
             </Transition.Child>
 
-            <div className="fixed z-50 inset-0 items-center min-h-full w-screen justify-center overflow-y-auto flex">
+            <div className="fixed z-[75] inset-0 items-center min-h-full w-screen justify-center overflow-y-auto flex">
               <Transition.Child
                 as={Fragment}
-                enter="ease-out duration-300"
+                enter="ease-out duration-200"
                 enterFrom="opacity-0 scale-90"
                 enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
@@ -144,8 +148,17 @@ const Header: React.FC = () => {
           </Dialog>
         </Transition>
       )}
+      <div className="h-16 opacity-0">.</div>
     </>
   )
 }
 
-export { Header }
+const PageTitle: React.FC<PageTitleProps> = (props: PageTitleProps) => {
+  return (
+    <>
+      <h1 className="text-4xl font-bold mb-6 pb-2 border-b-4 border-primary mt-2">{props.title}</h1>
+    </>
+  )
+}
+
+export { Header, PageTitle }

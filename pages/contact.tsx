@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Container, Box } from '@/components'
+import { Container, Box, PageTitle } from '@/components'
 import Head from 'next/head'
 import data from '@/data'
 
@@ -12,7 +12,7 @@ const ContactPage: React.FC = () => {
       </Head>
 
       <Container>
-        <h1 className="text-4xl font-bold mb-6 mt-2">Contact me</h1>
+        <PageTitle title="Contact me" />
 
         {Object.keys(data.contact).map((x: string, index: number): React.ReactNode => {
           return (
