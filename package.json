@@ -27,7 +27,7 @@
     "typescript": "4.7.4"
   },
   "dependencies": {
-    "@headlessui/react": "^0.0.0-insiders.5af3bd4",
+    "@headlessui/react": "^0.3.0",
     "@next/bundle-analyzer": "^12.2.2",
     "axios": "^0.27.2",
     "framer-motion": "^6.3.16",
