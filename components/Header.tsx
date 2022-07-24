@@ -156,7 +156,7 @@ const Header: React.FC = () => {
 const PageTitle: React.FC<PageTitleProps> = (props: PageTitleProps) => {
   return (
     <>
-      <h1 className="text-4xl font-bold mb-6 pb-2 border-b-4 border-primary mt-2">{props.title}</h1>
+      <h1 className="text-4xl font-bold mb-4 pb-2 border-b-4 border-primary mt-2">{props.title}</h1>
     </>
   )
 }

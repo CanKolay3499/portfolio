@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
         <PageTitle title="About me" />
 
         <div className="mb-4">
-          <h2 className="text-3xl pb-2 border-b-2 border-primary mb-2 font-medium mb-1">Short bio</h2>
+          <h2 className="text-2xl font-medium mb-1">Short bio</h2>
           <div>
             <div
               className="text-secondary font-mono"
@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
         </div>
 
         <div data-nosnippet className="mb-4">
-          <h2 className="text-3xl pb-2 border-b-2 border-primary mb-2 font-medium mb-1">Skills</h2>
+          <h2 className="text-2xl font-medium mb-1">Skills</h2>
           <div className="grid grid-rows-2 grid-cols-2 md:grid-cols-3 gap-2">
             {Object.keys(data.homePage.skills).map(
               (key: string, index: number): React.ReactNode => {
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
         </div>
 
         <div data-nosnippet className="mb-4">
-          <h2 className="text-3xl pb-2 border-b-2 border-primary mb-2 font-medium mb-1">My development journey</h2>
+          <h2 className="text-3xl font-medium mb-1">My development journey</h2>
           <div>
             {Object.keys(data.homePage.journey)
               .reverse()
